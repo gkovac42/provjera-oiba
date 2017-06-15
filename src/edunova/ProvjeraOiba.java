@@ -30,16 +30,16 @@ public class ProvjeraOiba {
 
 		int rezultat = 0;
 
-		for (int j = 0; j < 10; j++) {
+		for (int i = 0; i < 10; i++) {
 
-			if (j == 0) {
-				rezultat = (oib[j] + 10) % 10;
+			if (i == 0) {
+				rezultat = (oib[i] + 10) % 10;
 				if (rezultat == 0) {
 					rezultat = 10;
 				}
 				rezultat = (rezultat * 2) % 11;
 			} else {
-				rezultat = (rezultat + oib[j]) % 10;
+				rezultat = (rezultat + oib[i]) % 10;
 				if (rezultat == 0) {
 					rezultat = 10;
 				}
