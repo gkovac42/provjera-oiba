@@ -30,7 +30,7 @@ public class ProvjeraOiba {
 		int rezultat = 0;
 
 		for (int j = 0; j < 10; j++) {
-			
+			//inline if
 			rezultat = (j == 0) ? (oib[j] + 10) % 10 : (rezultat + oib[j]) % 10;
 			
 			if (rezultat == 0) {
@@ -39,17 +39,13 @@ public class ProvjeraOiba {
 			rezultat = (rezultat * 2) % 11;
 
 		}
-
-		if (11 - rezultat == oib[10] || (11 - rezultat == 10 && oib[10] == 0)) {
-			return true;
-		}
-
-		return false;
-
+		// inline if
+		return 11 - rezultat == oib[10] || (11 - rezultat == 10 && oib[10] == 0) ?  true : false;
+			
 	}
 
 	private void ispis(boolean b) {
-		
+		// inline if
 		JOptionPane.showMessageDialog(null, (b) ? "OIB je ispravan." : "Greška. OIB je neispravan");
 	}
 
