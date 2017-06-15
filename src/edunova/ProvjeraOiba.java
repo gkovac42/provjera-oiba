@@ -1,4 +1,3 @@
-
 package edunova;
 
 import javax.swing.JOptionPane;
@@ -30,22 +29,13 @@ public class ProvjeraOiba {
 
 		int rezultat = 0;
 
-		for (int i = 0; i < 10; i++) {
-
-			if (i == 0) {
-				rezultat = (oib[i] + 10) % 10;
-				if (rezultat == 0) {
-					rezultat = 10;
-				}
-				rezultat = (rezultat * 2) % 11;
-			} else {
-				rezultat = (rezultat + oib[i]) % 10;
-				if (rezultat == 0) {
-					rezultat = 10;
-				}
-				rezultat = (rezultat * 2) % 11;
-
+		for (int j = 0; j < 10; j++) {
+			// inline if
+			rezultat = (j == 0) ? (oib[j] + 10) % 10 : (rezultat + oib[j]) % 10;
+			if (rezultat == 0) {
+				rezultat = 10;
 			}
+			rezultat = (rezultat * 2) % 11;
 
 		}
 
@@ -58,11 +48,8 @@ public class ProvjeraOiba {
 	}
 
 	private void ispis(boolean b) {
-		if (b) {
-			JOptionPane.showMessageDialog(null, "OIB je ispravan.");
-		} else {
-			JOptionPane.showMessageDialog(null, "Greška. OIB nije ispravan!");
-		}
+		// inline if
+		JOptionPane.showMessageDialog(null, (b) ? "OIB je ispravan." : "Greška. OIB je neispravan");
 	}
 
 	public static void main(String[] args) {
@@ -72,4 +59,3 @@ public class ProvjeraOiba {
 	}
 
 }
-
