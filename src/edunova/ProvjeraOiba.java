@@ -2,13 +2,13 @@ package edunova;
 
 import javax.swing.JOptionPane;
 
-public class ProvjeraOiba {
+public class ProvjeraOIBa {
 
-	public ProvjeraOiba() {
-		ispis(provjeraOiba(unosOiba()));
+	public ProvjeraOIBa() {
+		ispis(provjeraOIBa(unosOIBa()));
 	}
 
-	private int[] unosOiba() {
+	private int[] unosOIBa() {
 
 		int[] oib = new int[11];
 		String unos = JOptionPane.showInputDialog("Unesite OIB:");
@@ -25,33 +25,34 @@ public class ProvjeraOiba {
 
 	}
 
-	private boolean provjeraOiba(int[] oib) {
+	private boolean provjeraOIBa(int[] oib) {
 
 		int rezultat = 0;
 
-		for (int j = 0; j < 10; j++) {
-			//inline if
-			rezultat = (j == 0) ? (oib[j] + 10) % 10 : (rezultat + oib[j]) % 10;
-			
+		for (int i = 0; i < 10; i++) {
+
+			rezultat = (i == 0) ? (oib[i] + 10) % 10 : (rezultat + oib[i]) % 10;
+
 			if (rezultat == 0) {
 				rezultat = 10;
 			}
+			
 			rezultat = (rezultat * 2) % 11;
 
 		}
-		// inline if
-		return 11 - rezultat == oib[10] || (11 - rezultat == 10 && oib[10] == 0) ?  true : false;
-			
+
+		return 11 - rezultat == oib[10] || (11 - rezultat == 10 && oib[10] == 0) ? true : false;
+
 	}
 
 	private void ispis(boolean b) {
-		// inline if
+
 		JOptionPane.showMessageDialog(null, (b) ? "OIB je ispravan." : "Greška. OIB je neispravan");
 	}
 
 	public static void main(String[] args) {
 
-		new ProvjeraOiba();
+		new ProvjeraOIBa();
 
 	}
 
